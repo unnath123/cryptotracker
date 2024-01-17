@@ -1,0 +1,87 @@
+.crypto-tracker-heading, .real-time-heading{
+    font-size: 6rem;
+    margin:0;
+}
+.flex-info{
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    padding:0.5rem 3rem;  
+}
+.crypto-tracker-heading{
+    color:var(--white);
+    -webkit-text-stroke-width: 3px;
+    -webkit-text-stroke-color: var(--white);
+}
+.real-time-heading{
+    color:var(--blue);
+    
+}
+.crypto-tracker-heading:hover{
+    color:var(--black);
+    -webkit-text-stroke-color: var(--white);
+    transform: all 0.3s;
+}
+.text-info{
+    color:var(--grey);
+    font-size: 1rem;
+}
+.flex-btns{
+    display: flex;
+    gap:1rem;
+    justify-content: flex-start;
+}
+.phone-container{
+    position:relative;
+    width:50%;
+    padding: 1rem;
+}
+.iphone{
+    position:absolute;
+    z-index:100;
+    min-width:350px;
+    width:50%;
+    right:0;
+}
+.gradientbg{
+    position: absolute;
+    min-width:300px;
+    width:40%;
+    right:0;
+    top:4rem
+}
+@media only screen and (max-width: 800px) {
+    .crypto-tracker-heading, .real-time-heading{
+        font-size: 5rem;
+    }
+    .iphone{
+        min-width:250px;
+        width:50%;
+        
+    }
+    .gradientbg{
+        min-width:200px;
+        top:4rem
+    }
+    .flex-info{
+        flex-direction: column;
+        
+    }
+    .left-component{
+        text-align: center;
+        width: 100%;
+    }
+    .phone-container{
+        margin:auto;
+        margin-top: 1rem;    
+    }
+    .iphone{
+        left:20%;
+    }
+    .gradientbg{
+        left:25%;
+    }
+    .flex-btns{
+        justify-content: center;
+    }
+}
