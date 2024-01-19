@@ -1,14 +1,20 @@
 import './App.css';
-import Header from './components/common/Header'
-import Footer from './components/common/Footer'
-import Maincomponent from './components/LandingPage/Maincomponent';
+import HomePage from './pages/Home';
+import Dashboard from './pages/Dashboard';
+import { BrowserRouter } from 'react-router-dom';
+import { Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
-        <Header />
-        <Maincomponent />
+        <BrowserRouter>
+          <Routes>
+            <Route path='/' element={<HomePage/>} />
+            <Route path='/dashboard' element={<Dashboard/>} />
+            
+          </Routes>
+        </BrowserRouter>
       </header>
     </div>
   );
