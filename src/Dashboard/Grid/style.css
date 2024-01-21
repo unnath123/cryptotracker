@@ -1,0 +1,113 @@
+.grid-container{
+    width:280px;
+    height:280px;
+    background-color: var(--darkgrey);
+    border:2px solid var(--darkgrey);
+    border-radius: 0.75rem;
+}
+.info-flex{
+    display:flex;
+    justify-content: flex-start;
+    align-items: center;
+    gap:1rem;
+    margin:1rem 1.5rem;
+}
+.coin-logo{
+    height:3rem;
+    width:3rem;
+}
+.coin-symbol{
+    color:var(--white);
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 1rem;
+    margin:0
+}
+.coin-name{
+    color:var(--grey);
+    text-transform: capitalize;
+    font-weight: light;
+    font-size: 1rem;
+    margin:0
+}
+.name-col{
+    display:flex;
+    flex-direction:column;
+    gap:0.3rem;
+}
+.chip-flex{
+    display: flex;
+    justify-content: flex-start;
+    gap:1rem;
+    align-items: center;
+    margin:1rem 1.5rem
+}
+.price-chip-positive{
+    border:2px solid var(--green);
+    border-radius: 2rem;
+    padding: 0.3rem 1.1rem;
+    text-align: center;
+    font-weight: 400;
+    color:var(--green);
+    font-size: 0.9rem;
+}
+.price-chip-negative{
+    border:2px solid var(--red);
+    border-radius: 2rem;
+    padding: 0.3rem 1.1rem;
+    text-align: center;
+    font-weight: 400;
+    color:var(--red);
+    font-size: 0.9rem;
+}
+.chip-icon-up{
+    color:var(--green);
+    border:2px solid var(--green);
+    border-radius: 2rem;
+    /* padding: 0.1rem 0.5rem; */
+    text-align: center;
+    font-size: 0.9rem;
+    border-radius: 50%;
+    width:2rem;
+    height:2rem;
+}
+.flex-prop{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.chip-icon-down{
+    color:var(--red);
+    border:2px solid var(--red);
+    border-radius: 2rem;
+    /* padding: 0.1rem 0.5rem; */
+    text-align: center;
+    border-radius: 50%;
+    width:2rem;
+    height:2rem;
+}
+.chip-container{
+    display:flex;
+    justify-content: flex-start;
+    gap:1rem;
+    margin:0.8rem 0rem;
+}
+.price-chip-negative:hover{
+    background-color: var(--red);
+    color:var(--white);
+}
+.price-chip-positive:hover{
+    background-color: var(--green);
+    color:var(--white);
+}
+.coin-price-info{
+    margin: 0.8rem 1.5rem;
+}
+.coin-price-info h3{
+    font-size:1rem;
+    font-weight: 500;
+}
+.coin-price-info p{
+    font-size:0.85rem;
+    color:var(--grey);
+}
