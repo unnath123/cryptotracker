@@ -6,3 +6,8 @@
     gap:1rem;
     margin:1rem;
 }
+.list-table{
+    width:95%;
+    display: block;
+    margin:auto auto
+}
