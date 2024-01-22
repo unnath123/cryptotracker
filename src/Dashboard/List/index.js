@@ -60,7 +60,7 @@ const List = ({ coin }) => {
           </Tooltip>
           <Tooltip title="Total volume"><td className="total-volume"><p className="td-mkt-vlm">{Number(coin.total_volume).toLocaleString()}</p></td></Tooltip>
           <Tooltip title="Market cap"><td className="td-mkt-cap-desktop market-cap"><p className="td-mkt-vlm">₹{Number(coin.market_cap).toLocaleString()}</p></td></Tooltip>
-          <Tooltip title="Market cap"><td className="td-mkt-cap-mobile market-cap"><p className="td-mkt-vlm">₹{convertNumbers(coin.market_cap)}L</p></td></Tooltip>
+          <Tooltip title="Market cap"><td className="td-mkt-cap-mobile market-cap"><p className="td-mkt-vlm">₹{convertNumbers(coin.market_cap)}</p></td></Tooltip>
         {/* </td> */}
       </tr>
    
