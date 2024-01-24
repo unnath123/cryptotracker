@@ -1,0 +1,16 @@
+.back-to-top{
+    position: fixed;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: var(--darkgrey);
+    border: 2px solid var(--blue);
+    border-radius: 50%;
+    z-index: 100;
+    width: 2.5rem;
+    height: 2.5rem;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    color: var(--blue);
+    cursor: pointer;
+  }

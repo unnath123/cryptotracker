@@ -1,0 +1,18 @@
+.coin-description a{
+    text-decoration:underline;
+    color:var(--blue)
+}
+.grey-wrapper-one{
+    background-color: var(--darkgrey);
+    margin: 1.5rem auto;
+    border-radius: 0.8rem;
+    width:90%;
+    padding:0.2rem 0rem
+}
+.coin-description,.coin-heading{
+    margin:1rem;
+}
+.coin-description{
+    text-align: justify;
+  text-justify: inter-word;
+}

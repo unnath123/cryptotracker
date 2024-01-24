@@ -2,9 +2,11 @@ import React from 'react'
 import style from './style.css'
 import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
 import TrendingDownRoundedIcon from '@mui/icons-material/TrendingDownRounded';
+import {Link} from 'react-router-dom'
 
 const Grid = ({coin}) => {
   return (
+    <Link to={`/coin/${coin.id}`}>
     <div className='grid-container'>
         <div className="info-flex">
             <img src={coin.image} className='coin-logo' />
@@ -41,6 +43,7 @@ const Grid = ({coin}) => {
         <p>Market cap: Rs{Number(coin.market_cap).toLocaleString()}</p>
         </div>
     </div>
+    </Link>
   )
 }
 

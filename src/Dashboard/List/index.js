@@ -4,10 +4,11 @@ import TrendingUpRoundedIcon from "@mui/icons-material/TrendingUpRounded";
 import TrendingDownRoundedIcon from "@mui/icons-material/TrendingDownRounded";
 import Tooltip from '@mui/material/Tooltip';
 import { convertNumbers } from "../../functions/ConvertNumber";
+import {Link} from 'react-router-dom'
 
 const List = ({ coin }) => {
   return (
-    
+    // <Link to={`/coin/${coin.id}`}>
       <tr className="list-row">
         <Tooltip title="logo">
         <td className="td-coin-image">
@@ -63,7 +64,7 @@ const List = ({ coin }) => {
           <Tooltip title="Market cap"><td className="td-mkt-cap-mobile market-cap"><p className="td-mkt-vlm">₹{convertNumbers(coin.market_cap)}</p></td></Tooltip>
         {/* </td> */}
       </tr>
-   
+  //  </Link>
   );
 };
 
