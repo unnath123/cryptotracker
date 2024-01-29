@@ -3,7 +3,7 @@ import { useState } from 'react'
 import './style.css'
 
 const CoinInfo = ({heading, description}) => {
-    const Shortdesc = description.slice(0,300) + "<span style='color:var(--grey)'> Read more...</span>"
+    const Shortdesc = (description.slice(0,300)) + "<span style='color:var(--grey)'> Read more...</span>"
     const longdesc = description+"<span style='color:var(--grey)'> Read less...</span>";
     const [flag, setFlag] = useState(true)
   return (

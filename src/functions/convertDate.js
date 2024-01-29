@@ -1,4 +1,4 @@
 export const convertDate = (date)=>{
-    var mydate = new Date(date);
-    return mydate.getDate()+'/'+mydate.getMonth() + 1;
+    var date = new Date(date);
+    return date.getDate() + "/" + (date.getMonth() + 1);
 }

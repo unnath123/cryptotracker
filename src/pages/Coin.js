@@ -12,6 +12,9 @@ import { getCoinData } from '../functions/getCoinData';
 import { coinPrices } from '../functions/getCoinPrices';
 import LineChart from '../components/Coin/LinChart';
 import { convertDate } from '../functions/convertDate';
+import SelectDays from '../components/Coin/SelectDays';
+import { SetCharDatafunc } from '../functions/SetCharDatafunc';
+import ToggleButtons from '../components/Coin/PriceType';
 
 const CoinPage = () => {
     const {id} = useParams();
@@ -19,6 +22,7 @@ const CoinPage = () => {
     const [coinData, setCoinData] = useState();
     const [days, setDays] = useState(30);
     const [chartData, setChartdata] = useState([]);
+    const [priceType, setPriceType] = useState("prices")
 
     useEffect(() => {
      if(id){
@@ -30,30 +34,31 @@ const CoinPage = () => {
       const Data = await getCoinData(id);
       if(Data){
         coinObject(setCoinData, Data);
-        const prices = await coinPrices(id, days);
-        console.log("sadya aythu")
+        const prices = await coinPrices(id, days, priceType);
+        SetCharDatafunc(setChartdata, prices);
         setLoading(false);
-        setChartdata({
-          labels: prices.slice(0,20).map((ele)=> convertDate(ele[0])),
-          datasets: [
-            {
-              data: prices.map((ele)=>(ele[1])),
-              borderColor: "#3a80e9",
-              backgroundColor:"transparent",
-              fill:true,
-              backgroundColor:"rgba(58,128,233,0.1)",
-              borderColor:"#3a80e9",
-              pointRadius: 0,
-              tension: 0.25,
-              borderWidth:2,
-            },
-          ],
-        });
       }
-      
-
     }
     
+    async function handleDaysChange(e){
+      setLoading(true)
+      setDays(e.target.value);
+      const prices = await coinPrices(id, e.target.value, priceType);
+      SetCharDatafunc(setChartdata, prices);
+      setLoading(false);
+    }
+
+    const handlePriceTypeChange = async (e, hosaType) => {
+      setLoading(true)
+      setPriceType(hosaType);
+      const prices = await coinPrices(id, days, e.target.value);
+      if(prices.length>0){
+        SetCharDatafunc(setChartdata, prices);
+        setLoading(false);
+      }
+      
+  };
+
   return (
     <div>
         <Header/>
@@ -67,14 +72,14 @@ const CoinPage = () => {
                 <List coin={coinData}/>
               </div>  
               <div className="grey-wrapper">
-                <LineChart chartData={chartData}/>
+                <SelectDays days={days} handleDaysChange={handleDaysChange} />
+                <ToggleButtons priceType={priceType} handlePriceTypeChange={handlePriceTypeChange} />
+                <LineChart chartData={chartData} priceType={priceType}/>
               </div>
               <CoinInfo heading={coinData.name} description={coinData.desc}/>
               </>
             )
-           
-        }
-        
+        } 
     </div>
   )
 }
