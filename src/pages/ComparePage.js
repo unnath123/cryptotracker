@@ -71,14 +71,19 @@ const ComparePage = () => {
         }
       
     }
+
     useEffect(()=>{
+        console.log("useEffect work agtide")
         getData();
-        console.log("useEffect work atgtide")
-    }, [])
+        
+    }, []);
+
   return (
     <div>
         <Header/>
-        {isLoading ? <Loader/>
+        {isLoading || !cryptoData1?.id || !cryptoData2?.id ? (
+        <Loader/>
+        ) 
         : (
         <>
         <div className='coins-days-flex'> 
@@ -95,8 +100,8 @@ const ComparePage = () => {
             {/* {console.log("chartData this isssss",chartData)} */}
         <LineChart chartData={chartData} priceType={"prices"} multiAxis={true}/>
         </div>
-        {console.log("this is the data of crypto 1",cryptoData1)}
-        {console.log("this is the data of crypto 2",cryptoData2)}
+        {/* {console.log("this is the data of crypto 1",cryptoData1)}
+        {console.log("this is the data of crypto 2",cryptoData2)} */}
         <CoinInfo heading={cryptoData1.name} description={cryptoData1.desc}/>
         <CoinInfo heading={cryptoData2.name} description={cryptoData2.desc}/> 
         </>)
