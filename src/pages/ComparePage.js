@@ -70,11 +70,11 @@ const ComparePage = () => {
       
         }
       
-        useEffect(()=>{
-            getData();
-            console.log("useEffect work atgtide")
-        }, [])
     }
+    useEffect(()=>{
+        getData();
+        console.log("useEffect work atgtide")
+    }, [])
   return (
     <div>
         <Header/>
