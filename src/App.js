@@ -5,6 +5,7 @@ import { BrowserRouter } from 'react-router-dom';
 import { Routes, Route } from 'react-router-dom';
 import CoinPage from './pages/Coin';
 import ComparePage from './pages/ComparePage';
+import Watchlist from './pages/Watchlist';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
             <Route path='/dashboard' element={<Dashboard/>} />
             <Route path="/coin/:id" element={<CoinPage/>} />
             <Route path='/comparepage' element={<ComparePage/>} />
+            <Route path='/Watchlist' element={<Watchlist/>} />
           </Routes>
         </BrowserRouter>
       </header>

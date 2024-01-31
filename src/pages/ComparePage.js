@@ -82,6 +82,8 @@ const ComparePage = () => {
         setPriceType(newType);
         const prices1 = await coinPrices(crypto1, days, newType);
         const prices2 = await coinPrices(crypto2, days, newType);
+        SetCharDatafunc(setChartData, prices1, prices2);
+        setLoading(false)
     }
 
   return (

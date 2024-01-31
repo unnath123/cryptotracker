@@ -1,18 +1,60 @@
-import React from 'react'
+import React, {useState} from 'react'
 import style from './style.css'
 import TrendingUpRoundedIcon from '@mui/icons-material/TrendingUpRounded';
 import TrendingDownRoundedIcon from '@mui/icons-material/TrendingDownRounded';
+import StarRateIcon from '@mui/icons-material/StarRate';
+import StarsIcon from '@mui/icons-material/Stars';
 import {Link} from 'react-router-dom'
+import { addToWatchList } from '../../functions/addToWatchList';
+import { isitAdded } from '../../functions/isitAdded';
+import { removefromWlist } from '../../functions/removeFromWatchList';
 
 const Grid = ({coin}) => {
+    const [isColored, setColored] = useState(isitAdded(coin.id));
+    
+//     function handleStarClickAdd(event){
+//     event.preventDefault();
+//     setColor(true)
+//     // console.log("star clicked");
+//     event.stopPropagation();
+//     addToWatchList(coin.id);
+//   };
+
+//     function handleStarClickRemove(event){
+//     event.preventDefault();
+//     setColor(false)
+//     // console.log("star clicked");
+//     event.stopPropagation();
+//     removefromWlist(coin.id);
+//     }  
+
+function handleClick(e){
+    e.preventDefault();
+    e.stopPropagation();
+    if(isitAdded(coin.id)){
+        removefromWlist(coin.id);
+        console.log("Removed one" )
+        setColored(false)
+    }
+    else{
+        addToWatchList(coin.id);
+        setColored(true);
+    }
+}
+
   return (
     <Link to={`/coin/${coin.id}`}>
     <div className='grid-container'>
         <div className="info-flex">
-            <img src={coin.image} className='coin-logo' />
-            <div className='name-col'>
-                <p className='coin-symbol'>{coin.symbol}</p>
-                <p className='coin-name'>{coin.name}</p>
+            <div className="info-flex-onee">
+                <img src={coin.image} className='coin-logo' />
+                <div className='name-col'>
+                    <p className='coin-symbol'>{coin.symbol}</p>
+                    <p className='coin-name'>{coin.name}</p>
+                </div>
+            </div>
+            <div onClick={handleClick} className='star-icon-container' style={(coin.price_change_percentage_24h)>=0 ? {border:"3px solid var(--green)"} : {border:"3px solid var(--red)"}}>
+                <StarRateIcon style={isColored ? {color:"var(--blue)"}:{color:"var(--white)"}}  className='star-icon'/>
             </div>
         </div>
         <div className='chip-flex'>{
@@ -48,3 +90,5 @@ const Grid = ({coin}) => {
 }
 
 export default Grid
+
+//isColored? handleStarClickRemove : handleStarClickAdd 

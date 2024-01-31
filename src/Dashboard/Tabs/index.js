@@ -10,7 +10,7 @@ import Grid from '../Grid'
 import List from '../List'
 import style from './style.css'
 
-const TabsComponent = ({coins}) =>{
+const TabsComponent = ({coins, colorflag}) =>{
   const [value, setValue] = useState('1');
 
   const handleChange = (event, newValue) => {
@@ -45,7 +45,7 @@ const TabsComponent = ({coins}) =>{
           <div className="grid-flex">
             {
               coins.map((coin, i)=>(
-                <Grid  coin={coin} key={i}/>
+                <Grid  coin={coin} key={i} colorflag={colorflag}/>
               ))
             }
           </div>
