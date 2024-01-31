@@ -10,6 +10,7 @@ import CoinInfo from '../components/Coin/CoinInfo';
 import List from '../Dashboard/List';
 import {SetCharDatafunc} from '../functions/SetCharDatafunc'
 import LineChart from '../components/Coin/LinChart';
+import ToggleButtons from '../components/Coin/PriceType';
 
 
 const ComparePage = () => {
@@ -58,7 +59,7 @@ const ComparePage = () => {
             console.log("Crypto 2");
             coinObject(setCryptoData2, Data);
             // SetCharDatafunc(setChartdata, prices);
-            setLoading(false);
+           
         }
         else{
             setCrypto1(e.target.value);
@@ -66,17 +67,22 @@ const ComparePage = () => {
             const Data = await getCoinData(e.target.value)
             coinObject(setCryptoData1, Data);
             // SetCharDatafunc(setChartdata, prices);
-            setLoading(false);
       
         }
-      
+        setLoading(false)
     }
-
     useEffect(()=>{
         console.log("useEffect work agtide")
         getData();
-        
     }, []);
+
+
+  async function handlePriceTypeChange(e, newType){
+        setLoading(true);
+        setPriceType(newType);
+        const prices1 = await coinPrices(crypto1, days, newType);
+        const prices2 = await coinPrices(crypto2, days, newType);
+    }
 
   return (
     <div>
@@ -88,7 +94,8 @@ const ComparePage = () => {
         <>
         <div className='coins-days-flex'> 
             <SelectCoins crypto1={crypto1} crypto2={crypto2} handleCoinChange={handleCoinChange}/>
-            <SelectDays days={days} handleDaysChange={handleDaysChange}/>  
+            <SelectDays days={days} handleDaysChange={handleDaysChange}/> 
+            <ToggleButtons priceType={priceType} handlePriceTypeChange={handlePriceTypeChange} />
         </div>
         <div className='grey-wrapper'>
             <List coin={cryptoData1}/>
@@ -97,11 +104,8 @@ const ComparePage = () => {
             <List coin={cryptoData2}/>
         </div>
         <div className='grey-wrapper'>
-            {/* {console.log("chartData this isssss",chartData)} */}
         <LineChart chartData={chartData} priceType={"prices"} multiAxis={true}/>
         </div>
-        {/* {console.log("this is the data of crypto 1",cryptoData1)}
-        {console.log("this is the data of crypto 2",cryptoData2)} */}
         <CoinInfo heading={cryptoData1.name} description={cryptoData1.desc}/>
         <CoinInfo heading={cryptoData2.name} description={cryptoData2.desc}/> 
         </>)

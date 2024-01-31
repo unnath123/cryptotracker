@@ -16,23 +16,23 @@ function LineChart({ chartData, priceType, multiAxis }) {
       intersect: false,
     },
     scales: {
-      crypto1: {
+      y: {
         type: "linear",
         display: true,
         position: "left",
         ticks: {
           callback: function (value) {
-            if (priceType == "prices") {
-              return convertNumbers(value);
+            if (priceType == "total_volumes") {
+              return "$" + convertNumbers(value);
             } else if (priceType == "market_caps") {
-              return "Rs" + convertNumbers(value);
+              return "$" + convertNumbers(value);
             } else {
-              return "Rs" + value.toLocaleString();
+              return "$" + value.toLocaleString()
             }
           },
         },
       },
-      crypto2: multiAxis && {
+      y2: multiAxis && {
         type: "linear",
         display: true,
         position: "right",
