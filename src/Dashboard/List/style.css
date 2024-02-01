@@ -71,3 +71,36 @@ h3{
     }
  
 }
+.info-flex-onee{
+    display:flex;
+    justify-content:flex-start;
+    align-items: center;
+    gap:1rem;
+}
+.star-icon-container-list{
+    display: flex;
+    justify-content: center;
+    /* align-content: center !important; */
+    border:3px solid var(--green);
+    border-radius:50%;
+    padding:0.2rem;
+    width:20px;
+    height:20px;
+    padding-bottom: 5px;
+   
+}
+.star-icon-list{
+    width:20px;
+    height:20px;
+    z-index:1000;
+   padding-bottom: 5px;
+    /* color:var(--green); */
+}
+.star-selected{
+    color:var(--blue)
+}
+.star-container-list{
+    display:flex;
+    justify-content:center;
+    align-items:center
+}
